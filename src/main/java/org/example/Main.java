@@ -9,6 +9,7 @@ import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.printer.PrettyPrinter;
 import com.github.javaparser.printer.configuration.Indentation;
 import com.github.javaparser.printer.configuration.PrettyPrinterConfiguration;
+import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -91,7 +92,12 @@ public class Main {
         prettyPrinter.setConfiguration(conf);
 
         System.out.println(prettyPrinter.print(class1));
+        System.out.println();
 
+        String myCode = "//This is my comment \n class Ball { }";
+        CompilationUnit cu2 = StaticJavaParser.parse(myCode);
+        LexicalPreservingPrinter.setup(cu2);
+        System.out.println(LexicalPreservingPrinter.print(cu2));
 
 
     }
