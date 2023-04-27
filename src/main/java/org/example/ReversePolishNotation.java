@@ -3,7 +3,6 @@ package org.example;
 import java.util.Stack;
 import java.util.stream.Stream;
 
-
 /**
  * Comment 1
  */
